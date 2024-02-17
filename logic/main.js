@@ -224,7 +224,7 @@ function deleteProduct(productId) {
 // Get Categories Function //
 function getCategries () {
     return new Promise ((resolve, reject) => {
-        axios.get("http://localhost:3000/api/v1/categories")
+        axios.get(`${BaseUrl}/categories`)
         .then((res) => {
             let categories = res.data.data.categories;
             return [categories, resolve(categories)];
