@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+    <div id="forms-alert-components-container"></div>
+ 
+    <!-- nav bar -->
+    <div id="overlay" class=""></div>
+
+    <div>
+        <!-- nav bar -->
+        <div id="navecation">
+            <!-- nav bar -->
+            <nav >
+                <div class="container">
+                    <div id="logo" class="logo">
+                        <a href="index.html">متجري</a>
+                    </div>
+                        <div class="navecaiton ">
+                            <span id="nav-brg" class="brg-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        <ul id="nav" class="navecaiton-ul">
+                            <div class="container">
+                                <li><a class="navecaiton-a" href="index.html">الريئسية</a></li>
+                                <li><a class="navecaiton-a" href="#">المنتجات</a></li>
+                                <li><div class="authBtn"><a class="navecaiton-a" href="#" id="sign-in" onclick="showPopUp()">تسجيل الدخول</a></div></li>
+                                <div  style="cursor: pointer;"><a href="menu.html"><span class="navecaiton-span" id="maneu-conter">0</span>🗑️</a></div>
+                            </div>
+
+                        </ul>
+                    </div>
+                    
+                </div>               
+            </nav>
+            <!-- nav bar -->
+
+        </div>
+        <!-- nav bar -->
+
+    </div>
+    <!-- nav bar -->
+    
+    <!-- search scection -->
+    <section class="search-section">
+        <div class="container">
+            <input onkeyup="searchByTitle('all-prodcutd')" class="search-input" type="search" placeholder="ابحث عن منتج..">
+        </div>
+    </section>
+    <!-- search scection -->
+
+    <div class="products-page" >
+        <div class="container">
+            <!-- fliter -->
+            <div>
+                <div class="fliter-col">
+                    <b class="title">قم بالفلترة :</b>
+                    <div >
+                        <div  class="filter-type">
+                            <b onclick="filterResponcive('show-categories-filter')">حسب الصنف</b>
+                            <div id="show-categories-filter" class="filter-cont">
+                                <div id="categories-filter">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <hr>                    -->
+                        <div class="filter-type">
+                            <b onclick="filterResponcive('show-prices-filter')">حسب السعر</b>
+                            <div id="show-prices-filter" class="filter-cont">
+                            <div id="prices-filter"></div>
+                            </div>
+                        </div>
+                        <!-- <hr>                                     -->
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- prodcuts -->
+            <div  id="all-prodcutd" class="products">
+                <div  class="products-card">
+
+                    <img src="/images/download.png" alt="">
+
+                    <div class="container">
+                        <div class="prodcut-text">
+
+                            <h3> 
+                                Iphone X 
+                            </h3>
+    
+                            <p>white iphoe 256GB rom 12GB ram Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, non.</p>
+    
+                        </div>
+    
+                        <div class="prodcut-price">
+                            <b>
+                                3000
+                            </b>
+   
+                            <button id="${product._id}" onclick="" class="${deleteBtnClass}"     >اضف اى السلة</button>
+     
+                        </div>
+                    </div>
+
+                </div>  
+                <div  class="products-card">
+
+                    <img src="/images/download.png" alt="">
+
+                    <div class="container">
+                        <div class="product-text">
+
+                            <h3> 
+                                Iphone X 
+                            </h3>
+    
+                            <p>white iphoe 256GB rom 12GB ram Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, non.</p>
+    
+                        </div>
+    
+                        <div class="prodcut-price">
+                            <b>
+                                3000
+                            </b>
+   
+                            <button id="${product._id}" onclick="" class="${deleteBtnClass}"     >اضف اى السلة</button>
+     
+                        </div>
+                    </div>
+
+                </div> 
+                <div  class="products-card">
+
+                    <img src="/images/download.png" alt="">
+                    <div class="container">
+                        <div class="prodcut-text">
+                            <h3> 
+                                Iphone X 
+                            </h3>
+
+
+                            <p>white iphoe 256GB rom 12GB ram Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, non.</p>
+
+                        </div>                
+                    </div>
+                    <div class="prodcut-price">
+                        <div>
+                            3000
+                        </div>
+                        <div class = "product-card-btn">
+                            <button id="${product._id}" onclick="" class="${deleteBtnClass}"     >اضف اى السلة</button>
+                        </div>
+                    </div>
+
+                </div> 
+                <div  class="products-card">
+
+                    <img src="/images/1.jpg" alt="">
+
+                    <div class="prodcut-text">
+                        <h3> 
+                            Iphone X 
+                        </h3>
+                        <p>white iphoe 256GB rom 12GB ram Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, non.</p>
+                    </div>
+
+                    <div class="prodcut-price">
+                        <div>
+                            3000
+                        </div>
+                        <div class = "product-card-btn">
+                            <button id="${product._id}" onclick="" class="${deleteBtnClass}"     >اضف اى السلة</button>
+                        </div>
+                    </div>
+
+                </div> 
+            </div>
+            
+        </div>        
+        <span id="pagenation" class="main-btn ">
+           <p  onclick="pagination()">عرض المزيد</p>
+        </span>
+    </div>
+    
+
+
+    <!-- footer -->
+   
+    <div id="footer-componentes-container"></div>
+
+</body>
+<!-- <script src="../logic/index.js"></script> -->
+<script src="../components/alert&forms.js"></script>
+<script src="../components/footer.js"></script>
+<script src="../logic/main.js"></script>
+<script src="../logic/auth.js"></script>
+<script src="../styles/jsStyle/popUp.js"></script>
+<script src="../styles/jsStyle/responcive.js"></script> 
+<script>
+    async function fillFilterCol() {
+        const categories = await getCategries();
+        let content = ""
+        categories.map((cat) => {
+            content += `
+                <div class="fliter-items">
+                    <label>${cat.name}</label>
+                    <input id="${cat._id}" onclick="search(this.id)" type="checkbox" name="50$" id="500">
+                </div>
+            `
+        })
+        document.getElementById("categories-filter").innerHTML = ` ${content} `
+        content = "";
+        const prices = await getPrices();
+        prices.map((price) => {
+            content += `
+                <div class="fliter-items">
+                    <label>${price}</label>
+                    <input id="${price}" onclick="search(${null},this.id)" type="checkbox" name="50$" id="500">
+                </div>
+            `
+        });
+        document.getElementById("prices-filter").innerHTML = content;
+    }
+    fillFilterCol()
+</script>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../node_modules/axios/dist/axios.js"></script>
+
+    <script>
+        axios.get("http://localhost:3000/profile", 
+        {
+            headers:{
+                'Authorization': "Bearer " + localStorage.getItem("token")
+            } 
+        })
+        .then((res)=> console.log(res))
+        .catch((err) => {
+            console.lgo(err.response)
+            // window.location = '/views/'
+        })
+    </script>
+    <script src="../components/profile.js"></script> 
+
+</head>
+<body>
+
+
+<!-- profile pop up -->
+<div>
+    <div id="porflie-nav" class="hidde">
+        <div class="profile-description"> 
+            <div class="profile-image">
+                <img src="../images/1.jpg" alt="">
+            </div>
+            <div class="profile-username">
+             <b>ابراهيم عثمان</b>
+            </div>
+        </div>
+        <hr >
+        <div class="profile-nav">
+            <ul>
+                <li><a href="profilePage.html">الملف الشخصي</a></li>
+                <li><a href="profilePage.html#add-new-prodcut">اضف منتج</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- profile pop up -->
+
+
+    <!-- add new prodcut -->
+    <form id="pou-up-new-prodcut" action="submit" class="pob-up-form hidde">
+        <div style="font-weight: bold;">اضف منتج جديد</div>
+        <div class="pob-up-inputs">
+            اسم المنتج:
+            <input style="background-color: white; border: 0.5px solid ; border-radius: 4px;"  id="new-prodcut-name" type="username" placeholder="ادخل اسم المنتج..">
+            بيانات المنتج:
+            <textarea name="" id="new-prodcut-discrebtion" style="width : 90%;resize: none;" placeholder="صف المنتج.."></textarea>
+
+            سعر المنتج:
+
+            <input style="background-color: white;" id="new-prodcut-price" type="number" placeholder="سعر المنتج">
+
+
+            صنف المنتج:
+
+            <input style="background-color: white;" id="new-prodcut-category" type="text" placeholder="صنف المنتج">
+
+            اضف  الملفات:
+
+        <input id="new-prodcut-image" type="file" style="background-color: white; border:0.5px solid ; width: 80%;">
+
+        </div>
+        <div class="btn">
+            <button id="submit-new" onclick="createAnewProcut()" type="submit">submit</button>
+            <button id="close-new" type="button">close</button>
+        </div>
+    
+    </form>
+    <!-- add new prodcut -->
+
+    <!-- alerts -->
+    <div id="alert" class="alerts">
+
+    </div>
+    <!-- alerts --> 
+
+
+
+
+
+    <div id="overlay" class=""></div>
+
+
+    <div id="navecation">
+        <!-- nav bar -->
+        <nav >
+            <div class="container">
+                <div id="logo" class="logo">
+                    <a href="#">متجري</a>
+                </div>
+                    <div class="navecaiton ">
+                        <span id="nav-brg" class="brg-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    <ul id="nav" class="navecaiton-ul">
+                        <div class="container">
+                            <li><a class="navecaiton-a" href="index.html">الريئسية</a></li>
+                            <li><a class="navecaiton-a" href="prodcuts.html">المنتجات</a></li>
+                            <li><div class="authBtn"><a class="navecaiton-a" href="#" id="sign-in" onclick="showPopUp()">تسجيل الدخول</a></div></li>
+                            <div  style="cursor: pointer;"><a href="menu.html"><span class="navecaiton-span" id="maneu-conter">0</span>🗑️</a></div>
+                        </div>
+
+                    </ul>
+                </div>
+                
+            </div>               
+        </nav>
+        <!-- nav bar -->
+
+    </div>
+
+    <main class="main-of-profile-page" >
+        <div class="container">
+            <div class="profile-list">
+                <ul>
+                    <li onclick="profile() ">الملف الشخصي</li>
+                    <li>الثيم</li>
+                    
+                </ul>
+                <ul>
+                    <li id="yourProducts" onclick=" document.getElementById('your-prodcuts-container').style.display = 'grid';displayProducts(`your-prodcuts-container`, `&&userId=${userId}` , 'deleteProduct(this.id)' ,'delete-prd-btn');">منتجاتك</li>
+                    <li onclick="newProductForm()">اضف منتج جديد</li>
+                    <li> المبيعات </li>
+                </ul>
+            </div>
+            
+            <div id="container" class="content">
+                <div id="profile-page-title" class="title">
+                    <b>منتجاتك</b><span id="your-prodcts-count" style="font-size: 10px;">(0)</span>
+                </div>
+             
+                <div id="your-prodcuts-container" class="main-content " >  
+                    <div class="profile-img">
+                        <div class="img" style="background-image: url(../images/download\ \(2\).jpg);">
+                            <input type="file" name="" id="">
+                            <span class="pen">
+
+                            </span>
+                        </div>
+                    </div>
+                    <div class="userDescription">
+                        <div class="box">
+                            <span>اسم المستخدم :</span>
+                            <div id="username-box" class="div">
+                                <h3>ibrahimji</h3>
+                                <div class="icon">
+                                    <div class="background">
+                                        <span id="username" onclick="updateIput(this.id)" class="pen"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <span>عنك</span>
+                            <div id="about-box">
+                                <p>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur rerum aperiam nesciunt laudantium ea nostrum perferendis! Quo quas porro
+                                    cum iure exercitationem sit ducimus, incidunt, quibusdam iusto eos fuga explicabo.
+                                </p>
+                                <div class="icon">
+                                    <div class="background">
+                                        <span id="about" class="pen" onclick="updateIput(this.id)"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <span>رقم الهاتف :</span>
+                            <div id="phone-box">
+                                <p>قم باضافة رقم الهاتف</p>
+                                <div class="icon">
+                                    <div class="background">
+                                        <span id="phone"  onclick="updateIput(this.id)" class="pen"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+        
+    </main>
+</body>
+    <script src="../logic/main.js"></script>
+    <script src="../styles/jsStyle/popUp.js"></script>
+    <script src="../logic/m.js"></script>
+    <script src="../styles/jsStyle/responcive.js"></script> 
+    <script src="../components/inputs.js"></script> 
+    <script>
+        //display user product function //
+        const userId = JSON.parse(localStorage.getItem("user")).userId;
+        displayProducts("your-prodcuts-container", `&&userId=${userId}` , 'deleteProduct(this.id)' ,'delete-prd-btn',config);
+        document.getElementById('yourProducts').addEventListener("click" , () => {
+            document.getElementById("profile-page-title").innerHTML = 
+            `
+                <b>منتجاتك</b><span id="your-prodcts-count" style="font-size: 10px;">(0)</span>
+            `
+        })
+
+
+        // make user ready to add a new product by write in html page//
+
+        //add new product function //
+        function addNewProduct() {
+          
+            document.getElementById("submit").addEventListener("click" , async(e) => {
+
+            e.preventDefault()
+
+            const title = document.getElementById("title").value;
+            const price = document.getElementById("price").value;
+            const categorySelector = document.getElementById("category-selector").value;
+            const description = document.getElementById("description").value;
+            const image = document.getElementById("image").files[0];
+            const richDescription = document.getElementById("richDescription").value;
+            const optionalCategory = document.getElementById("optionalCategory").value ;
+            const countInStock = document.getElementById("count-in-stock").value;
+
+            let categoryId = categorySelector;
+
+            
+            await new Promise ((resolve,reject) => {
+                
+                if(optionalCategory !== '')  {
+                    axios.post(`${BaseUrl}/categories`,{name : optionalCategory},config)
+                    .then((res) => {
+                        categoryId = res.data.data.category._id;
+                        resolve()
+                        submitCategory ()
+                    }).catch((err) => {
+                        showAlert(err.response.data.message, 'danger-alert');
+                        reject()
+                    })
+                    
+                }else{
+                    resolve()
+                }
+            })
+            
+            if(!validation([price])) return showAlert("ادخل بيانات متوافقة!" , "danger-alert");
+            
+            const formData = new FormData();
+            formData.append("title" , title)
+            formData.append("price" , price)
+            formData.append("category" , categoryId)
+            formData.append("description" , description)
+            formData.append("richDescription" , richDescription)
+            formData.append("countInStock" , countInStock)
+            formData.append("image" , image)
+
+            axios.post(`${BaseUrl}/products`, formData,config)
+            .then((res) => {
+                showAlert(res.data.message)
+            })
+            .catch((err) => {
+                console.log(err.response.data.message)
+                showAlert(err.response.data.message, 'danger-alert')
+            })
+        })
+        }
+      
+        
+
+        // this function to get the add the update input ;
+        function updateIput(id) {
+            switch (id) {
+                case "username":
+                    input("username")
+                  
+                    break;
+                case "about":
+                    input("about")
+
+                    break;
+                case "phone":
+                    input("phone")
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function cancle(id) {
+            openUpdateInput = null;
+            document.getElementById(id+"-box").style.flexDirection = "row";
+            document.getElementById(id+"-box").innerHTML = `
+                ${id === 'username' ?
+                    `<h3>${JSON.parse(localStorage.getItem("user")).username}</h3>` : 
+                id === 'phone' ?
+                    `<p>${JSON.parse(localStorage.getItem("user")).phoneNumber}</p>` : 
+                id ==='about' ?
+                    `<p>${JSON.parse(localStorage.getItem("user")).about}</p>` :
+                ''}
+                <div class="icon">
+                    <div id="${id}" onclick="updateIput(this.id)" class="background">
+                        <span  class="pen"></span>
+                    </div>
+                </div>
+            `
+        }
+
+        
+        document.addEventListener("click", () => {
+            if(openUpdateInput ) {
+                cancle(openUpdateInput)
+            }
+        })  
+    </script>
+        <script src="../components/newProductFrom.js"></script> 
+
+</html>

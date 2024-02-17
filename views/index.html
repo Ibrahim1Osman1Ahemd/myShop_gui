@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجري</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" style="width: 50px; height: 50px;border-radius: 50%;" href="/images/favicon.ico" type="image/x-icon">
+    <script src="../node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+    <div id="forms-alert-components-container">
+
+    </div>
+    
+    <div id="overlay" class=""></div>
+    <div id="navecation">
+        <!-- nav bar -->
+        <nav >
+            <div class="container">
+                <div id="logo" class="logo">
+                    <a href="#">متجري</a>
+                </div>
+                <div class="navecaiton ">
+                    <span id="nav-brg" class="brg-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <ul id="nav" class="navecaiton-ul">
+                        <div class="container">
+                            <li><a class="navecaiton-a" href="#">الريئسية</a></li>
+                            <li><a class="navecaiton-a" href="prodcuts.html">المنتجات</a></li>
+                            <li class="authBtn"><a class="navecaiton-a" href="#" id="sign-in" onclick="showPopUp()">تسجيل الدخول</a></li>
+                            <div  style="cursor: pointer;"><a href="menu.html"><span class="navecaiton-span" id="maneu-conter">0</span>🗑️</a></div>
+                        </div>
+
+                    </ul>
+                </div>
+            
+            </div>               
+        </nav>
+        <!-- nav bar -->
+
+    </div>
+
+    <div class="search">
+        <div class="container">
+            <!-- search form -->
+            <div class="searchInput">
+                <input onkeyup="searchByTitle('prodcts-container')" class="search-input" type="search" src="img_the_scream.jpg" placeholder="ابحث..           
+                
+                    🔍">
+            </div>
+            <!-- search form -->
+
+            <!-- prodects cagetoryd -->
+            <div id="category" class="category">
+                
+                <div class="category-card" onclick="searchByCategory('phones')">
+                    <a href="#prodcts-container">
+                
+                        <div class="category-img">
+                            <img src="../images/download.png"  alt="">
+                        </div>
+                        <div class="category-text">
+                            هواتف ذكية
+                        </div>
+                    </a>
+                </div>
+                <div  class="category-card" onclick="searchByCategory('food')">
+                    <a href="#prodcts-container">
+                        <div class="category-img">
+                            <img src="../images/1.jpg"  alt="">
+                        </div>
+                        <div class="category-text" >
+                            مأكولات
+                        </div>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="#prodcts-container">
+                        <div class="category-img">
+                            <img src="../images/download (2).jpg"  alt="">
+                        </div>
+                        <div class="category-text">
+                            تقنية
+                        </div>
+                    </a>
+                </div>
+                <div class="category-card" onclick="searchByCategory('cars')">
+                    <a href="#prodcts-container">
+
+                        <div class="category-img">
+                            <img src="../images/images.png"  alt="">
+                        </div>
+                        <div class="category-text" >
+                            سيارات
+                        </div>
+                    </a>
+                </div>
+            
+            </div>
+            <!-- prodects cagetoryd -->
+    
+        </div>
+        <hr style="width: 100%; border: #f5f4f4 solid 1px;">
+    </div>
+
+
+    <h2  class="title">المنتجات</h2>
+    
+    <div class="landing-page">
+        <div class="container">
+            <div id="prodcts-container" class="products-container">
+    
+        
+            </div>
+            <a href="prodcuts.html" class="main-btn ">كل المتنجات</a>
+        </div>
+    </div>
+        
+
+
+    <!-- footer -->
+    <div id="footer-componentes-container"></div>
+
+</body>
+<!-- <script src="../logic/index.js"></script> -->
+<script src="../components/alert&forms.js"></script>
+<script src="../components/footer.js"></script>
+<script src="../logic/main.js"></script>
+<script src="../styles/jsStyle/popUp.js"></script>
+<script src="../logic/auth.js"></script>
+<script src="../logic/m.js"></script>
+<script src="../styles/jsStyle/responcive.js"></script> 
+</html>

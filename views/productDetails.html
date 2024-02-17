@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product Title</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search) ;
+        const productId = urlParams.get('productId');
+        if(!productId) document.location = "prodcuts.html";
+    </script>
+</head>
+
+<body>
+    <div id="forms-alert-components-container"></div>
+    
+    <!-- nav bar -->
+    <div id="overlay" class=""></div>
+
+    <div>
+        <!-- nav bar -->
+        <div id="navecation">
+            <!-- nav bar -->
+            <nav >
+                <div class="container">
+                    <div id="logo" class="logo">
+                        <a href="index.html">متجري</a>
+                    </div>
+                        <div class="navecaiton ">
+                            <span id="nav-brg" class="brg-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        <ul id="nav" class="navecaiton-ul">
+                            <div class="container">
+                                <li><a class="navecaiton-a" href="index.html">الريئسية</a></li>
+                                <li><a class="navecaiton-a" href="prodcuts.html">المنتجات</a></li>
+                                <li><div class="authBtn"><a class="navecaiton-a" href="#" id="sign-in" onclick="showPopUp()">تسجيل الدخول</a></div></li>
+                                <div  style="cursor: pointer;"><a href="menu.html"><span class="navecaiton-span" id="maneu-conter">0</span>🗑️</a></div>
+                            </div>
+
+                        </ul>
+                    </div>
+                    
+                </div>               
+            </nav>
+            <!-- nav bar -->
+
+        </div>
+        <!-- nav bar -->
+
+    </div>
+    <!-- nav bar -->
+    <!-- Start Product Detials -->
+    <div class="product-details">
+        <div class="container">
+            <div id="product-details" class="products-details-card">
+             
+            </div>
+        </div>
+    </div>
+    <!-- End Product Detials -->
+    <!-- Start Categories -->
+    <div class="categories">
+        <div class="container" id="categories-container">
+           
+        </div>
+    </div>
+    <!-- End Categories -->
+    <!-- Start rates-comments  -->
+    <div class="rates-comments">
+        <div class="container">
+            <div class="rates">
+                <h3>الاراء</h3>
+                <div class="rates-grid">
+                    <div class="rate-now">
+                        <h4>قم بالتقيم</h4>
+                        <span>d</span>
+                        <span>d</span>
+                        <span>d</span>
+                        <span>d</span>
+                    </div>
+                    <div class="pepole-rates">
+                        <span>d</span>
+                        <span>d</span>
+                        <span>d</span>
+                        <span>d</span>
+                        <span>d</span>
+                    </div>
+                </div>           
+            </div>
+            <div class="comments">
+                <h3>التعليقات</h3>
+                <div>
+                    <input id="comment-content" type="text" placeholder="قم بالتعليق الاَن...">
+                    <button onclick="postComment()">ارسال</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End rates-comments   -->
+    <!-- Start Comments -->
+    <div class="comments">
+        <div id="comments-container" class="container">
+
+        </div>
+    </div>
+    <!-- End Comments -->
+</body>
+<script src="../components/alert&forms.js"></script>
+<script src="../styles/jsStyle/popUp.js"></script>
+<script src="../styles/jsStyle/responcive.js"></script>
+<script src="../logic/main.js"></script>
+<script>
+   
+    getProduct(productId);
+
+    function postComment() {
+        
+        const body = {
+            content: document.getElementById("comment-content").value,
+            productId,
+        }
+        axios.post(`${BaseUrl}/comments`,body,config)
+        .then((res) => {
+            getProduct(productId);
+            document.getElementById("comment-content").value = ""
+        })
+        .catch((err) => {
+            if(err.response.data.message === "UnAuthozraid user!")
+            return showAlert("You must have login befor can posting a comment", "danger-alert");
+                
+            
+            showAlert(err.response.data.message,"danger-alert");
+        })
+    }
+    function deleteCommnet(commentId) {
+        axios.delete(`${BaseUrl}/comments/${commentId}`,config)
+        .then((res) => { 
+            getProduct(productId);
+            console.log(res)
+        })
+        .catch((err) => {
+            showAlert(err.response.data.message , "danger-alert")
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../style.css"> -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <title>السلة</title>
+</head>
+<body>
+
+    <!-- alerts -->
+    <div id="alert" class="alerts">
+
+    </div>
+    <!-- alerts -->
+    <div id="overlay" class=""></div>
+
+    <header style="background-color: white; box-shadow: 0 0 4px rgba(0, 0, 0, 0.292); padding: 20px 10%;align-items: center;" class="d-flex justufy-content-between w-100 body">
+        <div>
+            <h3 style="display: inline-block;">السلة</h3>      
+            <span style="cursor: pointer; text-align: center;
+            display: inline-block;
+            background-color: #cdbb56;
+            color: white;
+            border-radius: 100%;
+            margin-top: 10px;
+            font-size: 10px;
+            width: 15px;
+            height: 15px;
+            padding: 2px 2px;" id="maneu-conter">0</span>
+        </div>
+        <div><a href="index.html" style="text-decoration: none;">✖️</a></div>
+    </header>
+
+    <!-- <div style=" display: flex; flex-direction: column; align-items: center; padding: 20px 0;">  -->
+    <div class="menu">
+        <div id="menu-container" class="container">
+
+        </div>
+    </div>
+   
+    </div>
+</body>
+<script src="../logic/main.js"></script>
+<script>
+    // THE  menu PAGE //
+
+    function displayTheProdcutsInTheMenuPage(){
+        if(menuArr.length === 0) {
+            document.getElementById("menu-container").innerHTML = "<p>لايوجد لديك  منتجات في القائمة</p>"
+
+            return
+        }
+        displayProducts("menu-container",`&&productsIds=${menuArr}`)
+    }
+
+    displayTheProdcutsInTheMenuPage();
+</script>
+</html>
