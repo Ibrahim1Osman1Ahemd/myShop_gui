@@ -220,6 +220,7 @@ function deleteProduct(productId) {
         showAlert(err.response.data.message, "danger-alert")
     })
 }
+
 // Get Categories Function //
 function getCategries () {
     return new Promise ((resolve, reject) => {
@@ -431,9 +432,3 @@ function hiddeAlert(alertId) {
 
 
 
-
-// ToDo: 
-    // update product
-    // update profile
-    // profile section 
-// this is all for now //
