@@ -428,7 +428,3 @@ function showAlert(message , typeOfAlert="success-alert" ){
 function hiddeAlert(alertId) {
     document.getElementById(alertId).classList.add("hidde")
 }
-
-
-
-
