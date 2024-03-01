@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../style.css"> -->
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/menu.css">
     <script src="../node_modules/axios/dist/axios.js"></script>
     <title>السلة</title>
 </head>
@@ -40,9 +41,36 @@
         <div id="menu-container" class="container">
 
         </div>
+        <div class="menu-footer">
+            <div class="container">
+
+                <h3>الاجمالي</h3>
+                <div class="total-box">
+                    <div class="total-item">
+                        <h4>الطلبات</h4>
+                        <h4 id="requsets">0</h4>
+                    </div>
+                    <div class="total-item">
+                        <h4>الضريبة</h4>
+                        <h4>500</h4>
+                    </div>
+                    <div class="total-item">
+                        <h4>الاجمالي</h4>
+                        <h4 id="total">0</h4>
+                    </div>
+                    <div class="total-item">
+                        <a href="">
+                            <button>buy</button>
+                        </a>
+                        <a href="">
+                            <button>conineu </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
     </div>
    
-    </div>
 </body>
 <script src="../logic/main.js"></script>
 <script>
@@ -54,9 +82,47 @@
 
             return
         }
-        displayProducts("menu-container",`&&productsIds=${menuArr}`)
+        cartProducts = menuArr.map((item) => {
+          return item.id;
+        } )
+         
+        displayProducts("menu-container",`&&productsIds=${cartProducts}`); 
+
+        setTimeout(() => {
+            countTotal()
+        }, 1000);
     }
 
     displayTheProdcutsInTheMenuPage();
+    function countTotal () {
+        let total = 0;
+    
+        menuArr.map((item) => {
+            // console.log(item)
+           total = +total + +document.getElementById(`${item.id}price` ).innerHTML;
+        })
+        document.getElementById('requsets').innerText = total;
+        document.getElementById('total').innerText = total + 500;
+        // console.log(total);
+    }
+    
+    function quantityOprations (id , opration,priceID,idprice){
+        let price = idprice.split('price/')[1];
+        let itemIndex= menuArr.findIndex((item) => item.id === id.split('quantity')[0]);
+        console.log(price)
+        if (opration === "+") {
+            document.getElementById(id).innerHTML = +document.getElementById(id).innerHTML + 1;
+            document.getElementById(priceID).innerHTML = +price *  +document.getElementById(id).innerHTML;
+            menuArr[itemIndex].quantity++;
+        }else {
+            if(document.getElementById(id).innerHTML === '1') return;
+            document.getElementById(priceID).innerHTML = +document.getElementById(priceID).innerText -  +price;
+            document.getElementById(id).innerHTML = +document.getElementById(id).innerHTML - 1;
+            menuArr[itemIndex].quantity--;
+        }
+        localStorage.menuArr = JSON.stringify(menuArr);
+        countTotal();
+
+    }
 </script>
 </html>

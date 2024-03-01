@@ -296,6 +296,11 @@ nav .container .navecaiton ul .container a{
     color: #605864;
 }
 
+@media (max-width: 767px) {
+    .title {
+        margin-bottom: 10px;
+    }
+}
 
 
 .landing-page{
@@ -775,6 +780,7 @@ footer span{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        gap: 0px;
     }
 }
 
@@ -802,6 +808,11 @@ footer span{
     height: 300px;
 }
 
+@media (max-width: 767px) {
+    .main-of-profile-page .container .profile-list {
+        margin: 0;
+    }
+}
 .main-of-profile-page .container .profile-list ul{
     background-color: #ffffff;
  
@@ -1207,7 +1218,7 @@ footer span{
 /* responcive */
 
 .menu{
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 .menu .container{
     display: grid;
