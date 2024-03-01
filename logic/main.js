@@ -1,4 +1,4 @@
-const BaseUrl = "http://192.168.137.1:3000/api/v1"; //'https://myshop-api-ibrahim1osman1ahemd.onrender.com/api/v1';
+const BaseUrl = 'https://myshop-api-ibrahim1osman1ahemd.onrender.com/api/v1';
 const config = {
   headers: {
     Authorization: "Bearer " + localStorage.getItem("token"),
